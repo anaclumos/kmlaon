@@ -4,12 +4,14 @@
 #  Copyright © 2019 Sunghyun Cho. All rights reserved.
 #
 
-COMMENT = ''
-POSTID  = ''
-POSTURL = ''
-USERID  = ''
-USERPWD = ''
-RUNTIME = '' # May 21 2019 12:50:15 PM
+COMMENT = 'testflight'
+POSTURL = 'https://kmlaonline.net/board/all_announce/view/480865'
+POSTID  = '480865'
+DATFILE = open("userdat.txt", "r")
+USERDAT = DATFILE.readlines()
+USERID  = USERDAT[0][:-1]
+USERPWD = USERDAT[1]
+RUNTIME = 'May 21 2019 02:21:00 PM' # May 21 2019 12:50:15 PM
 
 #--------------------------------------------------
 from datetime import datetime, timedelta
@@ -37,10 +39,11 @@ def addcomment():
 	text_area = driver.find_element_by_xpath('//*[@id=\"article_comment_write_' + POSTID + '\"]/form/textarea').send_keys(COMMENT)
 	driver.find_element_by_xpath('//*[@id="article_comment_write_' + POSTID + '"]/form/input[6]').click()
 
-print("[댓글]:", COMMENT)
-print("[타겟]:", str(RUNTIME))
-print("[잔여]:", delta_t)
-print("[예상]:", str(datetime.now() + delta_t))
+print("[작성할 댓글]:", COMMENT)
+print("[예약된 시간]:", str(RUNTIME))
+print()
+print("[카운트 다운]:", delta_t)
+print("[작성될 시간]:", str(datetime.now() + delta_t))
 
 prepare()
 secs=delta_t.total_seconds()
