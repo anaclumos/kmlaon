@@ -9,7 +9,7 @@ DATFILE = open("userdat.txt", "r")
 USERDAT = DATFILE.readlines()
 USERID  = USERDAT[0][:-1]
 USERPWD = USERDAT[1]
-RUNTIME = 'May 22 2019 00:00:00 AM' # May 21 2019 12:50:15 PM
+RUNTIME = 'May 22 2019 12:00:00 AM' # May 21 2019 12:50:15 PM
 
 #--------------------------------------------------
 
