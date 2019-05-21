@@ -1,32 +1,30 @@
-#
 #  kmlaon.py
 #  Created by Sunghyun Cho on May 21 2019.
 #  Copyright © 2019 Sunghyun Cho. All rights reserved.
-#
 
-COMMENT = 'testflight'
+COMMENT = '비올레타 / 아이즈원 / https://youtu.be/6eEZ7DJMzuk'
 POSTURL = 'https://kmlaonline.net/board/all_announce/view/480865'
 POSTID  = '480865'
 DATFILE = open("userdat.txt", "r")
 USERDAT = DATFILE.readlines()
 USERID  = USERDAT[0][:-1]
 USERPWD = USERDAT[1]
-RUNTIME = 'May 21 2019 02:45:00 PM' # May 21 2019 12:50:15 PM
+RUNTIME = 'May 22 2019 00:00:00 AM' # May 21 2019 12:50:15 PM
 
 #--------------------------------------------------
+
 from datetime import datetime, timedelta
 from threading import Timer
 from selenium import webdriver
-#--------------------------------------------------
+
 op = webdriver.ChromeOptions()
 prefs = {"profile.managed_default_content_settings.images": 2}
 op.add_experimental_option("prefs", prefs)
 driver = webdriver.Chrome('./chromedriver', options = op)
-#--------------------------------------------------
+
 x = datetime.now()
 y = datetime.strptime(RUNTIME, '%b %d %Y %I:%M:%S %p')
 delta_t=y-x
-#--------------------------------------------------
 
 def prepare():
 	driver.get(POSTURL)
