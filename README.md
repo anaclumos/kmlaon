@@ -1,6 +1,6 @@
 # 카멜레온 `kmlaon`
 
-KMLA Online 댓글봇
+KMLA Online 예약댓글 봇
 
 ## 필요 조건
 * `userdat.txt`
